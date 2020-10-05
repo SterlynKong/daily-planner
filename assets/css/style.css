@@ -4,12 +4,11 @@ body {
   line-height: 1;
 }
 
-textarea{
-  background: transparent;
-  border: none;
+textarea {
+  background: transparent;  
+  border: 1px solid black;
   resize: none;
   color: #000000;
-  border-left: 1px solid black;
   padding: 10px;
 }
 
@@ -23,7 +22,6 @@ textarea{
 
 .description{
   white-space: pre-wrap;
-  border: 1px solid #000000;
 }
 
 .time-block{
@@ -34,7 +32,7 @@ textarea{
 .row {
   white-space: pre-wrap;
   height: 80px;
-  border-top: 2px solid white;;
+  border-top: 1px solid white;;
 }
 
 .hour {
