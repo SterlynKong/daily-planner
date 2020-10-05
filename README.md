@@ -10,6 +10,6 @@
 3. The 'hour' sections are created using javascript
 4. Styling is done via a combinaton of manual code and external libraries
 
-Application URL: https://sterlynkong.github.io/password-generator/
+Application URL: https://sterlynkong.github.io/daily-planner/
 
 Application image: ![Work Day Scheduler](assets/images/work_day_scheduler.png "Work Day Scheduler")
