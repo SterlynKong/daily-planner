@@ -6,20 +6,20 @@ $(document).ready(function () {
     // declare start-hour
     var startHour = moment().hour(9);
 
+    // container to hold scheduledItems
     var scheduledItems = [];
 
     // check for saved schedule items array
-    var savedSchedule = localStorage.getItem("scheduledItems");
-    console.log(savedSchedule) ;
+    // var savedSchedule = localStorage.getItem("scheduledItems");
 
     // function to create block of time for work day
     function createWorkDay() {
         for (i = 0; i < 9; i++) {
             // create elements that make up time-block
             var workDayRow = $("<div>").addClass("row timeblock");
-            var timeBlockHr = $("<div>").addClass("hour col-12 col-md-2");
-            var timeBlockDescription = $("<textarea>").addClass("description col-12 col-md-8");
-            var timeBlockSaveBtn = $("<button>").addClass("saveBtn col-12 col-md-2 fas fa-save");
+            var timeBlockHr = $("<div>").addClass("hour col-12 col-md-1");
+            var timeBlockDescription = $("<textarea>").addClass("description col-12 col-md-10");
+            var timeBlockSaveBtn = $("<button>").addClass("saveBtn col-12 col-md-1 fas fa-save");
             timeBlockHr.text(moment(startHour).add(i, 'hours').format('h A'));
 
             // append time-block children to the time-block row
@@ -47,9 +47,13 @@ $(document).ready(function () {
             id: timeBlockHr,
             description: timeBlockDescription
         };
+        // get savedSchedule
+        savedSchedule = JSON.parse(localStorage.getItem("scheduledItems"));
+        // find index of item to be update
+        savedSchedule[timeBlockHr].description = timeBlockDescription;        
 
-        scheduledItems.push(scheduledItemsObj);
-
+        // add scheduledItemsObj to scheduledItems Array
+        scheduledItems = savedSchedule;
         // save to local storage        
         localStorage.setItem("scheduledItems", JSON.stringify(scheduledItems));
     });
