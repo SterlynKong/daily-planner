@@ -4,7 +4,7 @@ $(document).ready(function () {
     $("#currentDay").text(currentDay);
 
     // declare start-hour
-    var startHour = moment().hour(9);
+    var startHour = moment().hour(1);
 
     // container to hold scheduledItems
     var scheduledItems = JSON.parse(localStorage.getItem("scheduledItems"));
@@ -66,14 +66,16 @@ $(document).ready(function () {
 
         // loop over time-blocks
         $(".hour").each(function () {
-            var blockHour = parseInt($(this).text());
+            var blockHour = parseInt($(this).innerHTML);
             console.log(blockHour);
+            console.log($(this).text());
 
             // check and update each time-block as necessary
             if (blockHour < currentHour) {
                 $(this).addClass("past")
             }
             else if (blockHour === currentHour) {
+                $(this).removeClass("past");
                 $(this).addClass("present")
             }
             else {
@@ -83,6 +85,6 @@ $(document).ready(function () {
             }
         });
     }
-    hourUpdater();
     createWorkDay();
+    hourUpdater();    
 });
